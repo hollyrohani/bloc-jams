@@ -21,11 +21,13 @@ html {
     background: #5B5579;
     padding-bottom: 0;
   }
- 
+  
+  body.landing .navbar {
+	margin-bottom: 0;
+}
+
 .player-header-nav {
 	background-color: rgba(123, 70, 163, .9);
 }
 
-body.landing .navbar {
-	margin-bottom: 0;
-}
+

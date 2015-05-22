@@ -82,16 +82,20 @@ td.song-number {
 .collection-album-container {
   margin-top: 30px;
   margin-bottom: 20px; }
-  .collection-album-container .caption {
-    margin-top: 10px; }
-    .collection-album-container .caption p {
-      font-size: 16px;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.6); }
-      .collection-album-container .caption p a {
-        color: rgba(255, 255, 255, 0.6); }
-        .collection-album-container .caption p a .album-name {
-          color: white; }
+
+.collection-album-container .caption {
+  margin-top: 10px; }
+
+.collection-album-container .caption p {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6); }
+
+.collection-album-container .caption p a {
+  color: rgba(255, 255, 255, 0.6); }
+
+.collection-album-container .caption p a.album-name {
+  color: white; }
 
 .collection-album-container img {
   max-width: 100%; }
@@ -256,11 +260,11 @@ body.landing {
   background: #5b5579;
   padding-bottom: 0; }
 
-.player-header-nav {
-  background-color: rgba(123, 70, 163, 0.9); }
-
 body.landing .navbar {
   margin-bottom: 0; }
+
+.player-header-nav {
+  background-color: rgba(123, 70, 163, 0.9); }
 
 
 /*# sourceMappingURL=app.css.map*/
