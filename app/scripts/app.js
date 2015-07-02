@@ -24,6 +24,18 @@
       { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta' }     ]
  };
  
+var albums = [];
+
+function createAlbum(index) {
+	var album = angular.copy(albumPicasso);
+	album.albumURL = '/images/album-placeholders/album-' + index + '.jpg';
+	
+	return album;
+}
+ 
+for (var i = 1; i < 10; i++) {
+ albums.push(createAlbum(i));
+} 
  
  blocJams = angular.module('BlocJams', ['ui.router']);
   
@@ -78,25 +90,39 @@
    $scope.subTextClicked = function() {
      $scope.subText += '!';
    };
+
+   $scope.albums = albums;
    
-   $scope.albumURLs = [
-     '/images/album-placeholders/album-1.jpg',
-     '/images/album-placeholders/album-2.jpg',
-     '/images/album-placeholders/album-3.jpg',
-     '/images/album-placeholders/album-4.jpg',
-     '/images/album-placeholders/album-5.jpg',
-     '/images/album-placeholders/album-6.jpg',
-     '/images/album-placeholders/album-7.jpg',
-     '/images/album-placeholders/album-8.jpg',
-     '/images/album-placeholders/album-9.jpg',
-   ];
-}]);
+   function flipCard(event, isFlipping) {
+	 var image = $(event.target);
+	 var information = $(event.target.parentNode).find(".album-information");
+	 var group = image.add(information);
+	 
+	 if (isFlipping) {
+		information.removeClass("hidden");
+		
+		group.addClass("animated flipInY");	 
+	 } else {
+		 group.removeClass("flipInY");
+		 group.addClass("flipOutY");
+		 information.addClass("hidden");
+		 group.removeClass("animated flipOutY");
+	 }
+   };
+   
+   $(".landing-album-thumbnail-container").on("mouseenter", ".landing-album-thumbnail", function (event) {
+	   flipCard(event, true);
+   });
+   
+   $(".landing-album-thumbnail-container").on("mouseleave", ".landing-album-thumbnail", function (event) {
+	   flipCard(event, false);
+   });
+ 
+ }]);
 
  blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($scope, SongPlayer) {
-	  $scope.albums = [];
-      for (var i = 0; i < 33; i++) {
-     $scope.albums.push(angular.copy(albumPicasso));
-   }
+	  $scope.albums = albumbs;
+
    
     $scope.playAlbum = function(album){
      SongPlayer.setSong(album, album.songs[0]); // Targets first song in the array.

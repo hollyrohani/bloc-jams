@@ -1,3 +1,5 @@
+  $('.hero-content h1').addClass('animated fadeInLeft');
+  
   $(document).ready(function() { 
     $('.hero-content h3').click(function(){
       var subText = $(this).text();
